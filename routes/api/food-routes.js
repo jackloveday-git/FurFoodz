@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const { user, food } = require('../../models');
+const { User, Food } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
     console.log('======================');
-    food.findAll(
+    Food.findAll(
         {attributes: ['id', 'food_url', 'title', 'created_at'],
         order: [['created_at', 'DESC']], 
         include: [
             {
-              model: user,
+              model: User,
               attributes: ['username']
             }
           ]    
@@ -22,14 +22,14 @@ router.get('/', (req, res) => {
   });
 
   router.get('/:id', (req, res) => {
-    food.findOne({
+    Food.findOne({
       where: {
         id: req.params.id
       },
       attributes: ['id', 'food_url', 'title', 'created_at'],
       include: [
         {
-          model: user,
+          model: User,
           attributes: ['username']
         }
       ]
@@ -49,7 +49,7 @@ router.get('/', (req, res) => {
 
   router.post('/', (req, res) => {
     // expects {title: 'Your reciepe goes viral!', food_url: 'https://......', user_id: 1}
-    food.create({
+    Food.create({
       title: req.body.title,
       food_url: req.body.post_url,
       user_id: req.body.user_id
@@ -62,7 +62,7 @@ router.get('/', (req, res) => {
   });
 
   router.put('/:id', (req, res) => {
-    food.update(
+    Food.update(
       {
         title: req.body.title
       },
@@ -86,7 +86,7 @@ router.get('/', (req, res) => {
   });
 
   router.delete('/:id', (req, res) => {
-    food.destroy({
+    Food.destroy({
       where: {
         id: req.params.id
       }
@@ -103,7 +103,5 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
-  
-  
   
   module.exports = router;

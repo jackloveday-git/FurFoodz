@@ -27,17 +27,14 @@ Dish.init(
               len: [1, 260],
             },
           },
-        
      },
      {
       sequelize,
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'Dish',
+      modelName: 'dish',
     }
-  
-    
-)
+);
 
-module.exports = dish;
+module.exports = Dish;

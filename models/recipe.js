@@ -16,8 +16,15 @@ Recipe.init(
             validate: {
               len: [1, 60],
             },
-          }
+          },
+      },
+      {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'recipe',
     }
-)
+);
 
-module.exports = recipe;
+module.exports = Recipe;

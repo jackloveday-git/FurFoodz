@@ -13,33 +13,30 @@ Food.init(
             primaryKey: true,
             autoIncrement: true,
           },
-
           food_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
               len: [1, 40],
-            },
-
+            }
+          },
         serving: {
             //in grams
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        
         calories: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-
-    }
+    },
     {
       sequelize,
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'Food',
+      modelName: 'food',
     }
-)
+  )
 
-module.exports = food;
+module.exports = Food;

@@ -1,7 +1,7 @@
 
-const Food = require('./food');
-const Recipe = require('./recipe');
-const Dish = require('./dish')
+const Food = require('./Food');
+const Recipe = require('./Recipe');
+const Dish = require('./Dish')
 
 
 
